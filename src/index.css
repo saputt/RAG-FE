@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .brand-gradient {
+    @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700;
+  }
+
+  .brand-gradient-text {
+    @apply brand-gradient bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-white border border-gray-100 shadow-soft;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-medium hover:-translate-y-0.5;
+  }
+
+  .input-clean {
+    @apply w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-900/40 focus:bg-white transition-all;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-gray-900 text-white font-medium px-5 py-2.5 text-sm hover:bg-gray-800 transition-all disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl bg-white text-gray-700 font-medium px-5 py-2.5 text-sm border border-gray-200 hover:bg-gray-50 transition-all disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl text-gray-500 font-medium px-3 py-2 text-sm hover:bg-gray-100 transition-all;
+  }
+
+  .sidebar-item {
+    @apply w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors cursor-pointer;
+  }
+
+  .sidebar-item-active {
+    @apply sidebar-item bg-gray-100 text-gray-900;
+  }
+
+  .sidebar-item-default {
+    @apply sidebar-item text-gray-500 hover:bg-gray-50 hover:text-gray-700;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-300;
+}
+
+/* Selection */
+::selection {
+  @apply bg-gray-200;
+}
