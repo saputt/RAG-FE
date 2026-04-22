@@ -43,7 +43,22 @@ export const useRooms = () => {
     },
   });
 
-  return { roomsQuery, createRoomMutation };
+  const deleteRoomMutation = useMutation({
+    mutationFn: (id: string) => roomService.delete(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['rooms'] });
+    },
+  });
+
+  const updateRoomMutation = useMutation({
+    mutationFn: ({ id, name }: { id: string; name: string }) =>
+      roomService.update(id, { name }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['rooms'] });
+    },
+  });
+
+  return { roomsQuery, createRoomMutation, deleteRoomMutation, updateRoomMutation };
 };
 
 export const useChat = (roomId: string) => {
